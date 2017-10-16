@@ -585,6 +585,9 @@ class UNet(object):
                              "category_loss: %.5f, cheat_loss: %.5f, const_loss: %.5f, l1_loss: %.5f, tv_loss: %.5f"
                 print(log_format % (ei, bid, total_batches, passed, batch_d_loss, batch_g_loss,
                                     category_loss, cheat_loss, const_loss, l1_loss, tv_loss))
+                with open('loss.txt', 'a') as out:
+                    out.write(log_format % (ei, bid, total_batches, passed, batch_d_loss, batch_g_loss, category_loss, cheat_loss, const_loss, l1_loss, tv_loss) + '\n')
+                    out.close()
                 summary_writer.add_summary(d_summary, counter)
                 summary_writer.add_summary(g_summary, counter)
 
