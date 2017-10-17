@@ -38,6 +38,8 @@ parser.add_argument('--split_ratio', type=float, default=0.1, dest='split_ratio'
 args = parser.parse_args()
 
 if __name__ == "__main__":
+    if not os.path.exists(args.save_dir):
+        os.makedirs(args.save_dir)
     train_path = os.path.join(args.save_dir, "train.obj")
     val_path = os.path.join(args.save_dir, "val.obj")
     pickle_examples(sorted(glob.glob(os.path.join(args.dir, "*.jpg"))), train_path=train_path, val_path=val_path,

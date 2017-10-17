@@ -326,6 +326,7 @@ class UNet(object):
     def get_model_id_and_dir(self):
         model_id = "experiment_%d_batch_%d" % (self.experiment_id, self.batch_size)
         model_dir = os.path.join(self.checkpoint_dir, model_id)
+        print("%s, %s" %(model_id, model_dir))
         return model_id, model_dir
 
     def checkpoint(self, saver, step):
@@ -338,7 +339,6 @@ class UNet(object):
         saver.save(self.sess, os.path.join(model_dir, model_name), global_step=step)
 
     def restore_model(self, saver, model_dir):
-
         ckpt = tf.train.get_checkpoint_state(model_dir)
 
         if ckpt:
@@ -598,6 +598,9 @@ class UNet(object):
                 if counter % checkpoint_steps == 0:
                     print("Checkpoint: save checkpoint step %d" % counter)
                     self.checkpoint(saver, counter)
+        with open('loss.txt', 'a') as out:
+            out.write("-----------------------------------------ended\n")
+            out.close()
         # save the last checkpoint
         print("Checkpoint: last checkpoint step %d" % counter)
         self.checkpoint(saver, counter)
