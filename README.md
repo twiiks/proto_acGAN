@@ -1,15 +1,24 @@
-proto_acGAN
-===========================
+## proco_ACGAN
 
-개요
----------------------------
+### Motivation
+How to avoid an afterimage?
 
-- 한글 폰트 자동 생성 서비스 [fontto](http://fontto.creatorlink.net/) 의 한글 학습 모델링 연구를 위한 프로젝트입니다.
-- [acGAN](https://arxiv.org/abs/1610.09585)을 참고하여 한글 폰트 자동완성 모델링을 연구합니다.
+### Approach #3
+Instead of transfering character itself, what about generating a character and applying user's hand-writting style with Domain transfer?
 
 
-구조
----------------------------
-- `fontto` : `reference` 모델을 한글 폰트 생성에 맞게 수정하거나 필요한 모델링을 직접 구현하는 디렉토리입니다.
-- `reference` : acGAN을 이용한 모델링의 핵심 코드, 또는 필요한 참고 코드를 작성하는 디렉토리입니다.
-- `simple` : `fontto`에서 구현하는 모델링의 간단한 코드를 작성하는 디렉토리입니다.
+## Structure
+- **fontto** : applying **reference** for Korean character, plus additional functions needed
+- **reference** : implemented code for acGAN
+
+
+## Limits
+- Needs a lot of datasets to train the model and style
+- Requires 4~5 hours per user's own style to learn imply the model
+
+
+## Example & Screenshot
+![screenshot1](https://s3.ap-northeast-2.amazonaws.com/fontto/repository-images/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2017-10-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+10.17.31.png)
+
+## Reference
+> [zi2zi](https://github.com/kaonashi-tyc/zi2zi)
