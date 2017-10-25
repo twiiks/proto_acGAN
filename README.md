@@ -1,10 +1,10 @@
 ## proco_ACGAN
 
 ### Motivation
-How to avoid an afterimage?
+- How to avoid an afterimage?
 
 ### Approach #3
-Instead of transfering character itself, what about generating a character and applying user's hand-writting style with Domain transfer?
+- Instead of transfering character itself, what about generating a character and applying user's hand-writting style with Domain transfer?
 
 
 ## Structure
